@@ -19,6 +19,7 @@ const btnNuevoJuego = document.querySelector('#btnNuevo');
 const divCartasJugador      = document.querySelector('#jugador-cartas');
 const divCartasComputadora  = document.querySelector('#computadora-cartas');
 const puntosHTML = document.querySelectorAll('small');
+const divTitulo = document.querySelector('.titulo');
 
 //esta funcion crea una nueva baraja
 const crearDeck = () =>{
@@ -38,7 +39,7 @@ const crearDeck = () =>{
     //console.log(deck);//deck ordenado
     //shuffle() desordena un arreglo
     deck=_.shuffle(deck);
-    console.log(deck);
+    //console.log(deck);
     return deck;
 }
 
@@ -92,13 +93,17 @@ const turnoComputadora = (puntosMinimos) =>{
 
     setTimeout(() => {
         if(puntosComputadora === puntosMinimos){
-            alert('Nadei Gana :(');
+            //alert('Nadei Gana :(');
+            divTitulo.innerText='Nadie Gana';
         }else if(puntosMinimos > 21){
-            alert('Computadora Gana');
+            //alert('Computadora Gana');
+            divTitulo.innerText='Computadora Gana';
         }else if(puntosComputadora>21){
-            alert('Jugador Gana');
+            //alert('Jugador Gana');
+            divTitulo.innerText='Jugador Gana';
         }else{
-            alert('Computadora Gana');
+            //alert('Computadora Gana');
+            divTitulo.innerText='Computadora Gana';
         }
 
         
@@ -164,6 +169,7 @@ btnNuevoJuego.addEventListener('click', ()=>{
 
     btnPedir.disabled=false;
     btnDetener.disabled=false;
+    divTitulo.innerText='BlackJack';
 
 });
 
